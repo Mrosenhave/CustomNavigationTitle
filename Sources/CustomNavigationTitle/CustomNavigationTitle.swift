@@ -30,7 +30,7 @@ private struct ScrollAwareTitleModifier<V: View>: ViewModifier {
         content
             .backgroundPreferenceValue(BoundsPreferenceKey.self) { anchor in
                 GeometryReader { proxy in
-                    if let anchor = anchor {
+                    if let anchor {
                         let scrollFrame = proxy.frame(in: .local).minY
                         let itemFrame = proxy[anchor]
                         let isVisible = itemFrame.maxY > scrollFrame
